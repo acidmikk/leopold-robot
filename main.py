@@ -8,7 +8,7 @@ bot = telebot.TeleBot(token)
 
 @bot.message_handler(commands=['start', 'help'])
 def handle_command(message):
-    bot.send_message(message.chat.id, 'привет! Вот токен' + token)
+    bot.send_message(message.chat.id, 'привет!')
 
 
 bot.polling(True)
