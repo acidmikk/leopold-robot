@@ -16,8 +16,9 @@ def handle_command(message):
 
 @bot.message_handler(content_types=['text'])
 def handle_text(message):
-    bot.send_message(message.chat.id, 'Я учусь читать',
-                     disable_web_page_preview=True)
+    bot.send_chat_action(message.chat.id, 'typing')
+    if message.text.lower == 'что делаешь, лео?':
+        bot.send_message(message.chat.id, 'Привет! Я учусь читать и писать', reply_to_message_id=message.message_id)
 
 
 bot.polling(True)
