@@ -16,7 +16,7 @@ def handle_command(message):
 
 @bot.message_handler(content_types=['text'])
 def handle_text(message):
-    bot.send_message(message.chat.id, 'Я учусь читать', reply_to_message_id=message.id,
+    bot.send_message(message.chat.id, 'Я учусь читать',
                      disable_web_page_preview=True)
 
 
