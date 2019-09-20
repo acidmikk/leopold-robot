@@ -33,7 +33,7 @@ def handle_text(message):
             for i in range(len(words)):
                 if word in words[i]:
                     answer = word + ' или же ' + words[i][0] + ' - это ' + discriptions[i]
-                    bot.send_message(message.chat.id, answer, reply_to_message_id=message.message_id)
+        bot.send_message(message.chat.id, answer, reply_to_message_id=message.message_id)
 
 
 bot.polling(True)
