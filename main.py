@@ -29,6 +29,7 @@ def handle_text(message):
         message_list = message.text.split()
         words = functions.word_and_synonims
         discriptions = functions.words_discription
+        answer = ''
         for word in message_list:
             for i in range(len(words)):
                 if word in words[i]:
