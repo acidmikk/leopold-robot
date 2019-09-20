@@ -26,14 +26,14 @@ def handle_text(message):
         bot.send_message(message.chat.id, 'Привет! Я учусь читать и писать', reply_to_message_id=message.message_id)
     else:
         functions.update()
-        message = message.text.split()
+        message_list = message.text.split()
         words = functions.word_and_synonims
         discriptions = functions.words_discription
-        for word in message:
+        for word in message_list:
             for i in range(len(words)):
                 if word in words[i]:
                     answer = word + ' или же ' + words[i][0] + ' - это ' + discriptions[i]
-                    bot.send_message(message.chat.id, answer)
+                    bot.send_message(message.chat.id, answer, reply_to_message_id=message.message_id)
 
 
 bot.polling(True)
