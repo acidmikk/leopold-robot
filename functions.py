@@ -2,10 +2,10 @@ import requests, os
 
 word_and_synonims = []
 words_discription = []
+url = os.environ.get('URL', None)
 
 
 def update():
-    url = os.environ.get('URL', None)
     response = requests.get(url).json()
     word_list = response['data']
     for word in word_list:
