@@ -19,6 +19,7 @@ def handle_command(message):
 
 @bot.message_handler(content_types=['text'])
 def handle_text(message):
+    functions.update()
     message = message.split()
     words = functions.word_and_synonims
     discriptions = functions.words_discription
