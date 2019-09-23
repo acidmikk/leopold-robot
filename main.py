@@ -21,19 +21,18 @@ def handle_command(message):
 
 @bot.message_handler(content_types=['text'])
 def handle_text(message):
-    if message.text.lower() == 'что делаешь, лео?':
-        typing_action(message)
-        bot.send_message(message.chat.id, 'Привет! Я учусь читать и писать', reply_to_message_id=message.message_id)
-    else:
-        functions.update()
-        message_list = message.text.split()
-        words = functions.word_and_synonims
-        discriptions = functions.words_discription
+    functions.update()
+    message_list = message.text.split()
+    words = functions.word_and_synonims
+    discriptions = functions.words_discription
+    for word in message_list:
         answer = ''
-        for word in message_list:
-            for i in range(len(words)):
-                if word in words[i]:
-                    answer = word + ' или же ' + words[i][0] + ' - это ' + discriptions[i]
+        for i in range(len(words)):
+            if word in words[i]:
+                answer = word + ' '
+                if word != words[i][0]:
+                    answer += 'или же ' + words[i][0]
+                answer += '- это ' + discriptions[i]
         bot.send_message(message.chat.id, answer, reply_to_message_id=message.message_id)
 
 
