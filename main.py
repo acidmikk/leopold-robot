@@ -29,7 +29,7 @@ def handle_text(message):
     answer = ''
     for word in message_list:
         for i in range(len(words)):
-            if word in words[i]:
+            if word.lower() in words[i]:
                 answer = main_word[i] + ' '
                 if word != words[i][0]:
                     answer += 'или же ' + main_word[i] + ' '
