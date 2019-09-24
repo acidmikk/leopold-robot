@@ -30,10 +30,10 @@ def handle_text(message):
     for word in message_list:
         for i in range(len(words)):
             if word.lower() in words[i]:
-                if word == words[i][0] and word == main_word[i]:
+                if word == main_word[i]:
                     answer += word + ' '
                 else:
-                    answer += main_word[i]
+                    answer += main_word[i] + ' '
                 if word != words[i][0]:
                     answer += 'или же ' + main_word[i] + ' '
                 answer += '- это ' + discriptions[i] + '\n'
