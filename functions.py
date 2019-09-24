@@ -10,7 +10,7 @@ def update():
     response = requests.get(url).json()
     word_list = response['data']
     for word in word_list:
-        real_name.append(word['attributes']['main'].lower())
+        real_name.append(word['attributes']['main'])
         word_and_synonims.append([word['attributes']['main'].lower(),
                                   *list(map(lambda x: x.lower(), word['attributes']['synonims']))])
         words_discription.append(word['attributes']['description'])
