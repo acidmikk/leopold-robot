@@ -25,15 +25,16 @@ def handle_text(message):
     message_list = message.text.split()
     words = functions.word_and_synonims
     discriptions = functions.words_discription
+    main_word = functions.real_name
+    answer = ''
     for word in message_list:
-        answer = ''
         for i in range(len(words)):
             if word in words[i]:
                 answer = word + ' '
                 if word != words[i][0]:
-                    answer += 'или же ' + words[i][0]
-                answer += '- это ' + discriptions[i]
-        bot.send_message(message.chat.id, answer, reply_to_message_id=message.message_id)
+                    answer += 'или же ' + main_word[i] + ' '
+                answer += '- это ' + discriptions[i] + '\n'
+    bot.send_message(message.chat.id, answer[:-1], reply_to_message_id=message.message_id)
 
 
 bot.polling(True)
