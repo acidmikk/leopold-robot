@@ -30,11 +30,8 @@ def handle_text(message):
     for word in message_list:
         for i in range(len(words)):
             if word.lower() in words[i]:
-                if word == main_word[i]:
-                    answer += word + ' '
-                else:
-                    answer += main_word[i] + ' '
-                if word != words[i][0]:
+                answer += word + ' '
+                if word != words[i][0] or word != main_word[i]:
                     answer += 'или же ' + main_word[i] + ' '
                 answer += '- это ' + discriptions[i] + '\n'
     bot.send_message(message.chat.id, answer[:-1], reply_to_message_id=message.message_id)
